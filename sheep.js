@@ -42,3 +42,11 @@ function countSheeps(sheep) {
   // when finished, return total
   return total;
 }
+
+const countSheeps2 = (sheep) => {
+  // use the filter method to filter out the true values
+  // then return the length of the filtered array
+  return sheep.filter(Boolean).length;
+};
+
+console.log(countSheeps(sheep)); // 17
