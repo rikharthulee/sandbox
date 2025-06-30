@@ -9,9 +9,9 @@ function fetchUserDataCallback(callback) {
     });
 }
 
-function displayUser(data) {
-  console.log(`Name: ${data.name}`);
-  console.log(`Email: ${data.email}`);
+function displayUser(user) {
+  console.log(`Name: ${user.name}`);
+  console.log(`Email: ${user.email}`);
 }
 
 // Run the fetch and pass displayUser as the callback
