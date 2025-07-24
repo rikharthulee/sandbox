@@ -1,12 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandbox</title>
-    <script src="main.js" defer></script>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Days Until I See Tata Calculator</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 400px;
+        margin: 50px auto;
+        text-align: center;
+      }
+      input,
+      button {
+        padding: 8px;
+        margin-top: 10px;
+        font-size: 16px;
+      }
+      #result {
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Days Until I See Tata Calculator</h2>
+    <input type="date" id="dateInput" />
+    <br />
+    <button onclick="calculateDays()">Calculate</button>
+
+    <div id="result"></div>
+
+    <script>
+      function calculateDays() {
+        const dateInput = document.getElementById("dateInput").value;
+        const result = document.getElementById("result");
+
+        if (!dateInput) {
+          result.textContent = "Please select a date.";
+          return;
+        }
+
+        const today = new Date();
+        const target = new Date(dateInput);
+        target.setHours(0, 0, 0, 0); // Normalize time to midnight
+
+        const diffTime = target - today;
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+        if (diffDays < 0) {
+          result.textContent = "That date is in the past.";
+        } else if (diffDays === 0) {
+          result.textContent = "That's today!";
+        } else {
+          result.textContent = `There are ${diffDays} day(s) until ${target.toDateString()} when you see Tata.`;
+        }
+      }
+    </script>
+  </body>
 </html>

@@ -1,7 +1,7 @@
-function fetchUserDataCallback(callback) {
-  // Callback function vs async/await
-  // Using a callback to handle the fetched data
+// Callback function vs async/await
+// Using a callback to handle the fetched data
 
+function fetchUserDataCallback(callback) {
   fetch("https://jsonplaceholder.typicode.com/users/1")
     .then((response) => response.json())
     .then((data) => {
@@ -9,15 +9,18 @@ function fetchUserDataCallback(callback) {
     });
 }
 
+// The data that comes back is sent to the parameter called user
+// This function will be called after the data is fetched (if the fetch is successful).
 function displayUser(user) {
   console.log(`Name: ${user.name}`);
   console.log(`Email: ${user.email}`);
 }
 
-// Run the fetch and pass displayUser as the callback
+// Run the fetch User Date function and pass displayUser as the callback.
+// Aka, the data will be fetched and then display user will be called with the fetched data.
 fetchUserDataCallback(displayUser);
 
-// Using async/await to handle the fetched data
+//Using async/await to handle the fetched data
 
 async function fetchUserDataAsync() {
   try {
